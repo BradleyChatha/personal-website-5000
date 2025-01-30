@@ -6,8 +6,6 @@ import expressiveCode from "astro-expressive-code";
 import icon from "astro-icon";
 import remarkToc from "remark-toc";
 
-import cloudflare from "@astrojs/cloudflare";
-
 // https://astro.build/config
 export default defineConfig({
   site: "https://bradley.chatha.dev",
@@ -34,5 +32,4 @@ export default defineConfig({
   ],
 
   output: "static",
-  adapter: cloudflare(),
 });
