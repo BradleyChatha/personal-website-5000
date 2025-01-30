@@ -6,12 +6,16 @@ import expressiveCode from "astro-expressive-code";
 import icon from "astro-icon";
 import remarkToc from "remark-toc";
 
+import cloudflare from "@astrojs/cloudflare";
+
 // https://astro.build/config
 export default defineConfig({
   site: "https://bradley.chatha.dev",
+
   markdown: {
     remarkPlugins: [[remarkToc, { heading: "summary" }]],
   },
+
   integrations: [
     sitemap({
       i18n: {
@@ -28,4 +32,7 @@ export default defineConfig({
     }),
     icon(),
   ],
+
+  output: "static",
+  adapter: cloudflare(),
 });
