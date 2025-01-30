@@ -1,0 +1,17 @@
+---
+import BlogGroupCard from "../../components/blog/BlogGroupCard.astro";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { blogGroups, type BlogGroup } from "../../util/blog";
+---
+
+<BaseLayout>
+  <div class="flex-auto flex-col">
+    {
+      blogGroups.map(async (group: BlogGroup) => (
+        <div class="py-4 first:pt-0 last:pb-0">
+          <BlogGroupCard showBackLink={false} group={group} />
+        </div>
+      ))
+    }
+  </div>
+</BaseLayout>

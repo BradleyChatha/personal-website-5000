@@ -1,0 +1,53 @@
+---
+import { render } from "astro:content";
+import { Icon } from "astro-icon/components";
+import type { BlogGroup, BlogPost } from "../../util/blog";
+import Card from "./Card.astro";
+
+interface Props {
+  group: BlogGroup;
+  showBackLink: boolean;
+}
+
+const { group, showBackLink } = Astro.props;
+const { Content } = await render(group.raw);
+
+function makePostUrl(group: BlogGroup, post: BlogPost) {
+  return `/blog/${group.slug}/${post.slug}`;
+}
+
+function makeGroupUrl(group: BlogGroup) {
+  return `/blog/${group.slug}`;
+}
+---
+
+<Card>
+  {
+    showBackLink ? (
+      <a class="flex flex-row w-full" href="/blog">
+        <div class="flex mb-6">
+          <Icon
+            name="rivet-icons:chevron-left"
+            class="my-auto mr-1"
+            size="1rem"
+            is:inline
+          />
+          <span class="my-auto underline">Blog</span>
+        </div>
+      </a>
+    ) : null
+  }
+  <h1>
+    <a href={makeGroupUrl(group)}>{group.title}</a>
+  </h1>
+  <Content />
+  <ol>
+    {
+      group.posts.map((post: BlogPost) => (
+        <li>
+          <a href={makePostUrl(group, post)}>{post.title}</a>
+        </li>
+      ))
+    }
+  </ol>
+</Card>

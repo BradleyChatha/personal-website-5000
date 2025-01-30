@@ -1,0 +1,24 @@
+---
+import { render } from "astro:content";
+import type { BlogGroup, BlogPost } from "../../util/blog";
+import Card from "./Card.astro";
+import BlogPostCardNav from "./BlogPostCardNav.astro";
+
+interface Props {
+  group: BlogGroup;
+  post: BlogPost;
+  postIndex: number;
+}
+
+const { group, post, postIndex } = Astro.props;
+const { Content } = await render(post.raw);
+---
+
+<Card>
+  <BlogPostCardNav group={group} postIndex={postIndex} />
+  <h1>
+    {post.title}
+  </h1>
+  <Content />
+  <BlogPostCardNav group={group} postIndex={postIndex} />
+</Card>

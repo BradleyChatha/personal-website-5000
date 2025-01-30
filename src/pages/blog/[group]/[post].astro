@@ -1,0 +1,33 @@
+---
+import type { GetStaticPaths } from "astro";
+import { blogGroups, type BlogGroup, type BlogPost } from "../../../util/blog";
+import BaseLayout from "../../../layouts/BaseLayout.astro";
+import BlogPostCard from "../../../components/blog/BlogPostCard.astro";
+
+export const getStaticPaths = (() => {
+  return blogGroups
+    .map((bGroup: BlogGroup) => {
+      let count = 0;
+      return bGroup.posts.map((bPost: BlogPost) => ({
+        params: {
+          group: bGroup.slug,
+          post: bPost.slug,
+        },
+        props: {
+          group: bGroup,
+          post: bPost,
+          postIndex: count++,
+        },
+      }));
+    })
+    .flat();
+}) satisfies GetStaticPaths;
+
+const { group, post, postIndex } = Astro.props;
+---
+
+<BaseLayout>
+  <div class="flex-auto flex-col">
+    <BlogPostCard group={group} post={post} postIndex={postIndex} />
+  </div>
+</BaseLayout>

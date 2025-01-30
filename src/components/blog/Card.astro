@@ -1,0 +1,65 @@
+<section
+  class="blog-css-wrapper flex flex-row flex-wrap w-full md:w-3/4 xl:w-1/2 md:rounded md:p-4 mx-auto bg-zinc-800"
+>
+  <slot />
+</section>
+
+<style is:global>
+  section.blog-css-wrapper ul,
+  section.blog-css-wrapper ol,
+  section.blog-css-wrapper p,
+  section.blog-css-wrapper h2,
+  section.blog-css-wrapper div.expressive-code {
+    @apply w-full mb-5 last:mb-0;
+  }
+
+  section.blog-css-wrapper h1 {
+    @apply text-3xl mb-3 font-bold;
+  }
+
+  section.blog-css-wrapper h2 {
+    @apply text-2xl mb-3 font-bold;
+  }
+
+  section.blog-css-wrapper h3 {
+    @apply text-xl mb-3 font-bold;
+  }
+
+  section.blog-css-wrapper h4 {
+    @apply text-lg mb-3 font-bold;
+  }
+
+  section.blog-css-wrapper ol {
+    @apply ml-8 list-decimal;
+  }
+
+  section.blog-css-wrapper ul {
+    @apply ml-8 list-disc;
+  }
+
+  section.blog-css-wrapper li {
+    @apply mb-1 last:mb-0;
+  }
+
+  section.blog-css-wrapper code {
+    @apply px-1 bg-zinc-900;
+    color: #f97583;
+  }
+
+  section.blog-css-wrapper :not(h1) a {
+    @apply underline text-blue-400 hover:text-blue-300;
+  }
+
+  section.blog-css-wrapper p:has(+ h1, + h2, + h3, + h4),
+  section.blog-css-wrapper ul:has(+ h1, + h2, + h3, + h4),
+  section.blog-css-wrapper ol:has(+ h1, + h2, + h3, + h4),
+  section.blog-css-wrapper code:has(+ h1, + h2, + h3, + h4),
+  section.blog-css-wrapper pre:has(+ h1, + h2, + h3, + h4),
+  section.blog-css-wrapper div:has(+ h1, + h2, + h3, + h4) {
+    @apply mb-8;
+  }
+
+  section.blog-css-wrapper p:has(+ ul, + ol) {
+    @apply mb-2;
+  }
+</style>

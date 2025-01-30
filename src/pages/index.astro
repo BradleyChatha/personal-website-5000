@@ -1,11 +1,15 @@
 ---
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+import Card from "../components/blog/Card.astro";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { blogGroups } from "../util/blog";
 ---
 
-<Layout>
-	<Welcome />
-</Layout>
+<BaseLayout title="test">
+  <Card>
+    <h1>Welcome!</h1>
+    <p>
+      Website is super super super early WIP, for now all there is to see is my
+      <a href="/blog/">blog</a> while I deal with the hellscape of webdev.
+    </p>
+  </Card>
+</BaseLayout>

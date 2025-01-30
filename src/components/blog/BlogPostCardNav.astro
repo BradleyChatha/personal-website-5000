@@ -1,0 +1,28 @@
+---
+import { Icon } from "astro-icon/components";
+import type { BlogGroup } from "../../util/blog";
+
+interface Props {
+  group: BlogGroup;
+}
+
+const { group } = Astro.props;
+
+function makeGroupUrl(group: BlogGroup) {
+  return `/blog/${group.slug}`;
+}
+---
+
+<section class="flex flex-row w-full">
+  <a class="flex flex-row w-" href={makeGroupUrl(group)}>
+    <div class="flex mb-6">
+      <Icon
+        name="rivet-icons:chevron-left"
+        class="my-auto mr-4"
+        size="1rem"
+        is:inline
+      />
+      <span class="my-auto underline">Group: {group.title}</span>
+    </div>
+  </a>
+</section>
