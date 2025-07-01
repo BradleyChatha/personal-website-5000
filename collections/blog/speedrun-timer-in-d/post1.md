@@ -6,7 +6,7 @@ updated: 2025-06-08
 order: 0
 ---
 
-I semi-recently played through the original Deus Ex, and enjoyed my time with it so much that I felt like getting into speedrunning it, which ended up with me having to create a custom speedrun timer that "injects" itself into the game in order to implement features such as auto-splitting and load time removal.
+I semi-recently played through the original Deus Ex, and enjoyed my time with it so much that I felt like getting into speedrunning it, which ended up with me having to create a [custom speedrun timer](https://github.com/BradleyChatha/deusex-timer) that "injects" itself into the game in order to implement features such as auto-splitting and load time removal.
 
 This article details the rough journey I went through. It's not super well structured, but I was sorely lacking resources such as this when I was implementing the more complicated parts of the timer, so I wanted to share my experience.
 

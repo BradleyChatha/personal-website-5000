@@ -26,7 +26,7 @@ export const getStaticPaths = (() => {
 const { group, post, postIndex } = Astro.props;
 ---
 
-<BaseLayout>
+<BaseLayout title={post.title}>
   <div class="flex-auto flex-col">
     <BlogPostCard group={group} post={post} postIndex={postIndex} />
   </div>

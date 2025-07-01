@@ -18,7 +18,7 @@ export const getStaticPaths = (() => {
 const { group } = Astro.props;
 ---
 
-<BaseLayout>
+<BaseLayout title={group.title}>
   <div class="flex-auto flex-col">
     <BlogGroupCard showBackLink={true} group={group} />
   </div>
